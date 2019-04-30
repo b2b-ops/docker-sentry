@@ -1,0 +1,1 @@
+3 3 * * * sentry cleanup --silent --days ${SENTRY_CLEANUP_DAYS:-180} --loglevel ERROR
