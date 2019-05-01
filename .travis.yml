@@ -2,13 +2,12 @@ language: python
 
 env:
   - COMPOSE_FILE=docker-compose.test.yml
-  - PATH="~/.local/bin:$PATH"
 
 services:
   - docker
 
-before_install:
-  - pip install --user --upgrade docker-compose
+install:
+  - pip install --upgrade docker-compose
   - docker-compose version
 
 script:
