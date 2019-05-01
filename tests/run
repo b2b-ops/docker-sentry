@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+BATS_VER="1.1.0"
+
+export PATH="/opt/bats-core-$BATS_VER/libexec/bats-core:$PATH"
+
+curl -fsSL "https://github.com/bats-core/bats-core/archive/v$BATS_VER.tar.gz" \
+  | tar -C /opt -xzf -
+
+exec bats -r /tests
