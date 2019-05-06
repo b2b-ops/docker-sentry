@@ -1,7 +1,8 @@
 language: python
 
 env:
-  - COMPOSE_FILE=docker-compose.test.yml
+  global:
+    - COMPOSE_FILE=docker-compose.test.yml
 
 services:
   - docker

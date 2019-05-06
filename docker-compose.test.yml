@@ -7,3 +7,6 @@ services:
     command: /tests/run
     volumes:
       - ./tests:/tests:ro
+    environment:
+      SENTRY_VERSION: 9.1.1
+      BATS_VERSION: 1.1.0

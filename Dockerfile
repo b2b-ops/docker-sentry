@@ -1,15 +1,15 @@
-ARG SENTRY_VERSION="9.1.1"
+FROM sentry:9.1.1
 
-FROM sentry:${SENTRY_VERSION}
-
-ARG SUPERCRONIC_URL="https://github.com/aptible/supercronic/releases/download/v0.1.8/supercronic-linux-amd64"
-ARG DEBIAN_FRONTEND="noninteractive"
 ARG SENTRY_PLUGINS="sentry-ldap-auth"
 ARG SENTRY_PLUGINS_BUILDDEPS="libldap2-dev libsasl2-dev"
+ARG SUPERCRONIC_URL="https://github.com/aptible/supercronic/releases/download/v0.1.8/supercronic-linux-amd64"
+ARG DEBIAN_FRONTEND="noninteractive"
+ARG C_ALL="C.UTF-8"
 
 COPY root/ /
 
-RUN \
+RUN set -eux; \
+    \
     # Install packages
     \
     apt-get -qq update; \
